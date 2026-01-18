@@ -14,7 +14,7 @@ const projects = [
     title: "AI Text Analyzer",
     description: "Analyze text with a clean UI and API-first design.",
     tags: ["FastAPI", "Docker", "Swagger"],
-    liveUrl: "ai-text-analyzer/docs/",
+    liveUrl: "/ai-text-analyzer/docs/",
     githubUrl: "https://github.com/virajsule12/AI-Text-API",
     highlights: ["LLM-based text analysis", "Deployed with Docker"],
   },
