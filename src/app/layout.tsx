@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Viraj Sule - Software Engineer",
+  title: "Viraj Sule",
   description: "Portfolio Website",
   icons: {
     icon: "/favicon.ico",
