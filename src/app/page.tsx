@@ -51,16 +51,16 @@ export default function Home() {
                   key={p.title}
                   className="
                     snap-start flex-shrink-0
-                    w-[340px] h-[300px]
-                    md:w-[420px] md:h-[320px]
+                    w-[min(92vw,420px)] h-[320px] md:h-[320px]
                   "
                 >
                   <Card className="h-full flex flex-col">
                     {/* Top */}
                     <div>
                       <h3 className="text-xl font-semibold">{p.title}</h3>
-                      <p className="mt-2 text-slate-300">{p.description}</p>
-
+                      <p className="mt-2 text-slate-300 text-sm leading-snug line-clamp-2">
+                        {p.description}
+                      </p>
                       <div className="mt-4 flex flex-wrap gap-2">
                         {p.tags.map((t) => (
                           <Tag key={t}>{t}</Tag>
@@ -71,7 +71,7 @@ export default function Home() {
                         {p.highlights.map((h) => (
                           <li key={h} className="flex gap-2">
                             <span className="mt-1 inline-block h-2 w-2 rounded-full bg-blue-400" />
-                            <span>{h}</span>
+                            <span className="line-clamp-1">{h}</span>
                           </li>
                         ))}
                       </ul>
@@ -103,7 +103,7 @@ export default function Home() {
             "
           >
         {/* Experience */}
-        <div className="snap-start flex-shrink-0 w-[300px] h-[320px] md:w-[340px] md:h-[360px]">
+        <div className="snap-start flex-shrink-0 w-[min(92vw,340px)] h-[360px]">
           <Card className="h-full">
             <h3 className="text-lg font-semibold">Recent Experience</h3>
 
@@ -144,11 +144,11 @@ export default function Home() {
         </div>
 
         {/* Skills */}
-        <div className="snap-start flex-shrink-0 w-[300px] h-[320px] md:w-[340px] md:h-[360px]">
+        <div className="snap-start flex-shrink-0 w-[min(92vw,340px)] h-[360px]">
           <Card className="h-full">
             <h3 className="text-lg font-semibold">Skills</h3>
 
-            <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+            <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 text-sm">
 
               {/* Languages */}
               <div>
@@ -205,7 +205,7 @@ export default function Home() {
         </div>
 
             {/* Education */}
-            <div className="snap-start flex-shrink-0 w-[300px] h-[260px] md:w-[340px] md:h-[280px]">
+            <div className="snap-start flex-shrink-0 w-[min(92vw,340px)] h-[260px]">
               <Card className="h-full">
                 <h3 className="text-lg font-semibold">Education</h3>
 
@@ -396,6 +396,7 @@ function Card({ className = "", children }: { className?: string; children: Reac
     <div
       className={
         "rounded-2xl border border-white/10 bg-white/5 p-6 shadow-sm transition hover:bg-white/7 " +
+        "min-w-0 break-words overflow-hidden " +
         className
       }
     >
@@ -406,7 +407,7 @@ function Card({ className = "", children }: { className?: string; children: Reac
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] leading-none text-slate-200">
+    <span className="max-w-full truncate rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[11px] leading-none text-slate-200">
       {children}
     </span>
   );
