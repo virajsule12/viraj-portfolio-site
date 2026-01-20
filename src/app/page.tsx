@@ -148,7 +148,7 @@ export default function Home() {
           <Card className="h-full">
             <h3 className="text-lg font-semibold">Skills</h3>
 
-            <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3 text-sm">
+            <div className="mt-3 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
 
               {/* Languages */}
               <div>
