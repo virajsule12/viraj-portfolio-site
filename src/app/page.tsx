@@ -293,14 +293,14 @@ function Header() {
 
 function Hero() {
   return (
-    <section className="py-16 md:py-24">
+    <section className="pt-16 pb-8 md:pt-20 md:pb-10">
       <div className="grid items-start gap-10 md:grid-cols-2">
         <div>
           <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
-            Software engineer building scalable web apps and practical data-driven tools.
+            Software engineer building scalable systems and modern web applications.
           </h1>
           <p className="mt-5 max-w-xl text-lg text-slate-300">
-            FastAPI + React • AWS deployments • Clean UX
+            Production software • Backend systems • Data-driven features
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -316,12 +316,6 @@ function Hero() {
             >
               Email Me
             </a>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            <Tag>FastAPI</Tag>
-            <Tag>React</Tag>
-            <Tag>AWS</Tag>
           </div>
         </div>
 
@@ -370,10 +364,6 @@ function Hero() {
                   <Mail size={40} />
                 </a>
               </div>
-
-              <p className="text-sm text-slate-400">
-                FastAPI • React • AWS • Shipping production software
-              </p>
             </div>
           </Card>
 
@@ -384,7 +374,7 @@ function Hero() {
 
 function Section(props: { id: string; title: string; children: React.ReactNode }) {
   return (
-    <section id={props.id} className="py-10 md:py-14">
+    <section id={props.id} className="py-8 md:py-10">
       <h2 className="text-2xl font-semibold tracking-tight">{props.title}</h2>
       <div className="mt-6">{props.children}</div>
     </section>
