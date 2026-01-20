@@ -1,5 +1,7 @@
 // app/page.tsx
 import Link from "next/link";
+import Image from "next/image";
+import { Github, Linkedin, Mail, MapPin } from "lucide-react";
 
 const projects = [
   {
@@ -323,22 +325,58 @@ function Hero() {
           </div>
         </div>
 
-        <Card className="md:mt-2">
-          <div className="space-y-3 text-slate-300">
-            <div className="flex items-center justify-between">
-              <span>📍 Madison, WI</span>
-              <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-sm text-emerald-300">
-                Open to SWE roles
+          <Card className="md:mt-2">
+            <div className="space-y-4">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex items-center gap-2 text-slate-300">
+                  <MapPin size={18} className="opacity-80"/>
+                  <span>Madison, WI</span>
+                </div>
+
+              <span className="rounded-full bg-emerald-500/15 px-3 py-1 text-sm text-emerald-300 border border-emerald-400/20 shadow-[0_0_12px_rgba(16,185,129,0.15)]">
+                SWE @ Epic
               </span>
+
+              </div>
+
+              <div className="h-px bg-white/10" />
+
+              <div className="flex items-center gap-5">
+                <a
+                  href="https://github.com/virajsule12"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="GitHub"
+                  className="text-slate-300 hover:text-white transition hover:scale-110"
+                >
+                  <Github size={40} />
+                </a>
+
+                <a
+                  href="https://linkedin.com/in/virajsule"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title="LinkedIn"
+                  className="text-slate-300 hover:text-white transition hover:scale-110"
+                >
+                  <Linkedin size={40} />
+                </a>
+
+                <a
+                  href="mailto:virajsule12@gmail.com"
+                  title="Email"
+                  className="text-slate-300 hover:text-white transition hover:scale-110"
+                >
+                  <Mail size={40} />
+                </a>
+              </div>
+
+              <p className="text-sm text-slate-400">
+                FastAPI • React • AWS • Shipping production software
+              </p>
             </div>
-            <div className="h-px bg-white/10" />
-            <div className="flex gap-3 text-sm">
-              <a className="hover:text-slate-100" href="https://github.com/virajsule12">GitHub</a>
-              <a className="hover:text-slate-100" href="https://linkedin.com/in/virajsule/">LinkedIn</a>
-              <a className="hover:text-slate-100" href="mailto:virajsule12@gmail.com">Email</a>
-            </div>
-          </div>
-        </Card>
+          </Card>
+
       </div>
     </section>
   );
