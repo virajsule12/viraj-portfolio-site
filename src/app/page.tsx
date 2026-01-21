@@ -7,26 +7,43 @@ const projects = [
   {
     title: "Resume Analyzer",
     description: "Upload a resume PDF → get structured feedback & keyword insights.",
-    tags: ["FastAPI", "React", "AWS", "Nginx"],
+    tags: ["React", "AI", "AWS", "Nginx", "FastAPI"],
     liveUrl: "http://virajsule.com/resume-analyzer/",
     githubUrl: "https://github.com/virajsule12/AI-Resume-Analyzer",
-    highlights: ["PDF parsing & analysis", "Keyword match scoring"],
+    highlights: [
+      "PDF parsing & analysis", 
+      "Job-fit scoring and feedback",
+      "Automated strengths and gaps detection"
+    ],
   },
   {
-    title: "AI Text Analyzer",
-    description: "Analyze text with a clean UI and API-first design.",
-    tags: ["FastAPI", "Docker", "Swagger"],
+    title: "AI Text Analysis API",
+    description: "Cloud-hosted AI service for summarizing and classifying natural language text.",
+    tags: ["AI", "AWS", "FastAPI","Python"],
     liveUrl: "http://virajsule.com/ai-text-analyzer/docs",
     githubUrl: "https://github.com/virajsule12/AI-Text-API",
-    highlights: ["LLM-based text analysis", "Deployed with Docker"],
-  },
+    highlights: [
+      "AI-powered text summarization and classification",
+      "Converts text into structured insights", 
+      "Cloud-hosted, public REST API service"
+    ],
+  }
 ];
 
-const skills = {
-  Languages: ["Python", "TypeScript", "SQL"],
-  Frameworks: ["FastAPI", "React", "Next.js"],
-  Infra: ["AWS", "Nginx", "Docker"],
-};
+const noDemoProjects = [
+  {
+    title: "CompSci Classroom",
+    description:
+      "Web platform for hosting computer science learning content and interactive coursework.",
+    highlights: [
+      "Course content management system",
+      "Relational database for users and coursework",
+      "In-browser IDE for code execution & submissions"
+    ],
+    tags: ["React", "Node.js", "SQL", "Azure"],
+    githubUrl: "https://github.com/virajsule12/CSC"
+  }
+];
 
 export default function Home() {
   return (
@@ -87,6 +104,49 @@ export default function Home() {
                   </Card>
                 </div>
               ))}
+
+              {noDemoProjects.map((p) => (
+                <div
+                  key={p.title}
+                  className="
+                    snap-start flex-shrink-0
+                    w-[min(92vw,420px)] h-[320px] md:h-[320px]
+                  "
+                >
+                  <Card className="h-full flex flex-col">
+                    {/* Top */}
+                    <div>
+                      <h3 className="text-xl font-semibold">{p.title}</h3>
+                      <p className="mt-2 text-slate-300 text-sm leading-snug line-clamp-2">
+                        {p.description}
+                      </p>
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {p.tags.map((t) => (
+                          <Tag key={t}>{t}</Tag>
+                        ))}
+                      </div>
+
+                      <ul className="mt-4 space-y-2 text-slate-300">
+                        {p.highlights.map((h) => (
+                          <li key={h} className="flex gap-2">
+                            <span className="mt-1 inline-block h-2 w-2 rounded-full bg-blue-400" />
+                            <span className="line-clamp-1">{h}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Bottom (buttons always aligned) */}
+                    <div className="mt-auto pt-6 flex gap-3">
+                      <BtnLink href={p.githubUrl} variant="ghost">
+                        GitHub
+                      </BtnLink>
+                    </div>
+                  </Card>
+                </div>
+              ))}
+
+
             </div>
 
             <p className="mt-2 text-sm text-slate-500">Scroll →</p>
@@ -184,7 +244,7 @@ export default function Home() {
               <div>
                 <div className="text-xs font-medium text-slate-200">Cloud & Tools</div>
                 <div className="mt-1.5 flex flex-wrap gap-1.5">
-                  {["AWS", "Azure", "Docker", "Linux"].map((s) => (
+                  {["AWS", "Azure", "Linux", "Nginx"].map((s) => (
                     <Tag key={s}>{s}</Tag>
                   ))}
                 </div>
