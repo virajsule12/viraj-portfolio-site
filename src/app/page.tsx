@@ -40,7 +40,7 @@ const noDemoProjects = [
       "Relational database for users and coursework",
       "In-browser IDE for code execution & submissions"
     ],
-    tags: ["React", "Node.js", "SQL", "Azure"],
+    tags: ["Node.js", "SQL", "Azure", "HTML", "CSS", "Bootstrap"],
     githubUrl: "https://github.com/virajsule12/CSC"
   }
 ];
