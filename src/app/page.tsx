@@ -1,9 +1,21 @@
 // app/page.tsx
 import Link from "next/link";
 import Image from "next/image";
-import { Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Github, Linkedin, Mail, MapPin, GitBranch, GitBranchIcon, Camera, Radio } from "lucide-react";
 
 const projects = [
+    {
+    title: "Gains",
+    description:
+      "A full-stack iOS fitness app for structured session logging, progress analytics, and social performance comparison.",
+    highlights: [
+      "Course content management system",
+      "Relational database for users and coursework",
+      "In-browser IDE for code execution & submissions"
+    ],
+    tags: ["Swift", "SwiftUI", "Python", "PostgreSQL", "Docker"],
+    githubUrl: "https://github.com/virajsule12/Gains"
+  },
   {
     title: "Resume Analyzer",
     description: "Upload a resume PDF → get structured feedback & keyword insights.",
@@ -17,21 +29,6 @@ const projects = [
     ],
   },
   {
-    title: "AI Text Analysis API",
-    description: "Cloud-hosted AI service for summarizing and classifying natural language text.",
-    tags: ["AI", "AWS", "FastAPI","Python"],
-    liveUrl: "http://virajsule.com/ai-text-analyzer/docs",
-    githubUrl: "https://github.com/virajsule12/AI-Text-API",
-    highlights: [
-      "AI-powered text summarization and classification",
-      "Converts text into structured insights", 
-      "Cloud-hosted, public REST API service"
-    ],
-  }
-];
-
-const noDemoProjects = [
-  {
     title: "CompSci Classroom",
     description:
       "Web platform for hosting computer science learning content and interactive coursework.",
@@ -42,7 +39,19 @@ const noDemoProjects = [
     ],
     tags: ["Node.js", "SQL", "Azure", "HTML", "CSS", "Bootstrap"],
     githubUrl: "https://github.com/virajsule12/CSC"
-  }
+  },
+  {
+    title: "AI Text Analysis API",
+    description: "Cloud-hosted AI service for summarizing and classifying natural language text.",
+    tags: ["AI", "AWS", "FastAPI","Python"],
+    liveUrl: "http://virajsule.com/ai-text-analyzer/docs",
+    githubUrl: "https://github.com/virajsule12/AI-Text-API",
+    highlights: [
+      "AI-powered text summarization and classification",
+      "Converts text into structured insights", 
+      "Cloud-hosted, public REST API service"
+    ],
+  },
 ];
 
 export default function Home() {
@@ -58,7 +67,7 @@ export default function Home() {
             <div
               className="
                 flex gap-6 overflow-x-auto pb-4
-                snap-x snap-mandatory
+                snap-x snap-mandatory scrollbar-minimal
                 [-ms-overflow-style:none] [scrollbar-width:none]
                 [&::-webkit-scrollbar]:hidden
               "
@@ -96,56 +105,12 @@ export default function Home() {
 
                     {/* Bottom (buttons always aligned) */}
                     <div className="mt-auto pt-6 flex gap-3">
-                      <BtnLink href={p.liveUrl}>Live Demo</BtnLink>
-                      <BtnLink href={p.githubUrl} variant="ghost">
-                        GitHub
-                      </BtnLink>
+                      {p.liveUrl && <DemoButton href={p.liveUrl}>Live Demo</DemoButton>}
+                      <GithubButton href={p.githubUrl} />
                     </div>
                   </Card>
                 </div>
               ))}
-
-              {noDemoProjects.map((p) => (
-                <div
-                  key={p.title}
-                  className="
-                    snap-start flex-shrink-0
-                    w-[min(92vw,420px)] h-[320px] md:h-[320px]
-                  "
-                >
-                  <Card className="h-full flex flex-col">
-                    {/* Top */}
-                    <div>
-                      <h3 className="text-xl font-semibold">{p.title}</h3>
-                      <p className="mt-2 text-slate-300 text-sm leading-snug line-clamp-2">
-                        {p.description}
-                      </p>
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {p.tags.map((t) => (
-                          <Tag key={t}>{t}</Tag>
-                        ))}
-                      </div>
-
-                      <ul className="mt-4 space-y-2 text-slate-300">
-                        {p.highlights.map((h) => (
-                          <li key={h} className="flex gap-2">
-                            <span className="mt-1 inline-block h-2 w-2 rounded-full bg-blue-400" />
-                            <span className="line-clamp-1">{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Bottom (buttons always aligned) */}
-                    <div className="mt-auto pt-6 flex gap-3">
-                      <BtnLink href={p.githubUrl} variant="ghost">
-                        GitHub
-                      </BtnLink>
-                    </div>
-                  </Card>
-                </div>
-              ))}
-
 
             </div>
 
@@ -463,7 +428,6 @@ function Tag({ children }: { children: React.ReactNode }) {
   );
 }
 
-
 function BtnLink({
   href,
   variant = "solid",
@@ -480,6 +444,55 @@ function BtnLink({
   return (
     <a href={href} className={`${base} ${variant === "solid" ? solid : ghost}`}>
       {children}
+    </a>
+  );
+}
+
+function DemoButton({
+  href,
+  variant = "solid",
+  children,
+}: {
+  href: string;
+  variant?: "solid" | "ghost";
+  children: React.ReactNode;
+}) {
+  return (
+    <a href={href} 
+       className="
+      inline-flex items-center gap-2
+      rounded-full bg-blue-600 px-5 py-2.5
+      text-sm font-semibold text-slate-200
+      border border-white/10
+      transition
+      hover:bg-blue-500 hover:scale-[1.03]
+      active:scale-[0.98]
+      "
+    >
+      <Radio size={18} />
+      {children}
+    </a>
+  );
+}
+
+function GithubButton({ href }: { href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex items-center gap-2
+        rounded-full bg-white/5 px-5 py-2.5
+        text-sm font-semibold text-slate-200
+        border border-white/10
+        transition
+        hover:bg-white/6 hover:scale-[1.03]
+        active:scale-[0.98]
+      "
+    >
+      <GitBranch size={18} />
+      View Source
     </a>
   );
 }
