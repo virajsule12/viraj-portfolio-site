@@ -9,9 +9,9 @@ const projects = [
     description:
       "A full-stack iOS fitness app for structured session logging, progress analytics, and social performance comparison.",
     highlights: [
-      "Course content management system",
-      "Relational database for users and coursework",
-      "In-browser IDE for code execution & submissions"
+      "Session-based lift tracking with multi-set workouts",
+      "Visualize performance trends with dynamic charts",
+      "Built-in friend system for lift progress comparisons"
     ],
     tags: ["Swift", "SwiftUI", "Python", "PostgreSQL", "Docker"],
     githubUrl: "https://github.com/virajsule12/Gains"
