@@ -20,7 +20,6 @@ const projects = [
     title: "Resume Analyzer",
     description: "Upload a resume PDF → get structured feedback & keyword insights.",
     tags: ["React", "AI", "AWS", "Nginx", "FastAPI"],
-    liveUrl: "http://virajsule.com/resume-analyzer/",
     githubUrl: "https://github.com/virajsule12/AI-Resume-Analyzer",
     highlights: [
       "PDF parsing & analysis", 
@@ -44,7 +43,6 @@ const projects = [
     title: "AI Text Analysis API",
     description: "Cloud-hosted AI service for summarizing and classifying natural language text.",
     tags: ["AI", "AWS", "FastAPI","Python"],
-    liveUrl: "http://virajsule.com/ai-text-analyzer/docs",
     githubUrl: "https://github.com/virajsule12/AI-Text-API",
     highlights: [
       "AI-powered text summarization and classification",
@@ -105,8 +103,7 @@ export default function Home() {
 
                     {/* Bottom (buttons always aligned) */}
                     <div className="mt-auto pt-6 flex gap-3">
-                      {p.liveUrl && <DemoButton href={p.liveUrl}>Live Demo</DemoButton>}
-                      <GithubButton href={p.githubUrl} />
+                      <GithubButtonBlue href={p.githubUrl} />
                     </div>
                   </Card>
                 </div>
@@ -460,13 +457,13 @@ function DemoButton({
   return (
     <a href={href} 
        className="
-      inline-flex items-center gap-2
-      rounded-full bg-blue-600 px-5 py-2.5
-      text-sm font-semibold text-slate-200
-      border border-white/10
-      transition
-      hover:bg-blue-500 hover:scale-[1.03]
-      active:scale-[0.98]
+        inline-flex items-center gap-2
+        rounded-full bg-blue-600 px-5 py-2.5
+        text-sm font-semibold text-slate-200
+        border border-white/10
+        transition
+        hover:bg-blue-500 hover:scale-[1.03]
+        active:scale-[0.98]
       "
     >
       <Radio size={18} />
@@ -488,6 +485,28 @@ function GithubButton({ href }: { href: string }) {
         border border-white/10
         transition
         hover:bg-white/6 hover:scale-[1.03]
+        active:scale-[0.98]
+      "
+    >
+      <GitBranch size={18} />
+      View Source
+    </a>
+  );
+}
+
+function GithubButtonBlue({ href }: { href: string }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        inline-flex items-center gap-2
+        rounded-full bg-blue-600 px-5 py-2.5
+        text-sm font-semibold text-slate-200
+        border border-white/10
+        transition
+        hover:bg-blue-500 hover:scale-[1.03]
         active:scale-[0.98]
       "
     >
